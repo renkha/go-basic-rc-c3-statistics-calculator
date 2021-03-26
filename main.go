@@ -49,7 +49,15 @@ func (a Array) max() (string, error) {
 }
 
 func (a Array) median() (string, error) {
-	return "", nil
+	var median string
+	if len(a.number)%2 == 0 {
+		firstMedian := float64(a.number[(len(a.number)/2)-1])
+		secondMedian := float64(a.number[len(a.number)/2])
+		median = strconv.FormatFloat((firstMedian+secondMedian)/2, 'f', 1, 32)
+	} else {
+		median = strconv.Itoa(a.number[len(a.number)/2])
+	}
+	return "Median: " + median, nil
 }
 
 func (a Array) mean() (string, error) {
