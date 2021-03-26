@@ -61,5 +61,9 @@ func (a Array) median() (string, error) {
 }
 
 func (a Array) mean() (string, error) {
-	return "", nil
+	var mean int
+	for i := 0; i < len(a.number); i++ {
+		mean = mean + a.number[i]
+	}
+	return "Mean: " + strconv.Itoa(mean), nil
 }
